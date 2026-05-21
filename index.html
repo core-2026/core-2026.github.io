@@ -6,7 +6,7 @@
         content="Efficient Query Selection and Preference-Guided Exploration in Preference-based Reinforcement Learning">
   <meta name="keywords" content="Reinforcement Learning, Robotics, Preference-based RL">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SENIOR</title>
+  <title>CoRe</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -69,7 +69,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SENIOR: Efficient Query Selection and Preference-Guided Exploration in Preference-based Reinforcement Learning</h1>
+          <h1 class="title is-1 publication-title">CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <!-- <a href="https://keunhong.com">Hexian Ni</a><sup>1</sup>, <sup>2</sup>,</span> -->
@@ -77,11 +77,7 @@
             <span class="author-block">
               <a href="https://people.ucas.ac.cn/~casialutao">Tao Lu</a><sup>1†</sup>,</span>
             <span class="author-block">
-              Haoyuan Hu</a><sup>1</sup>, <sup>2</sup>, </span>
-            <span class="author-block">
               <a href="https://people.ucas.edu.cn/~yhcai">Yinghao Cai</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://people.ucas.ac.cn/~wangshuo">Shuo Wang</a><sup>1</sup>
             </span>
           </div>
 
@@ -98,7 +94,7 @@
             <div class="publication-links">
               <!-- PDF Link. todo -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2506.14648" 
+                <a href="https://core-2026.github.io/" 
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -107,7 +103,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2506.14648"
+                <a href="https://core-2026.github.io/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -127,7 +123,7 @@
               </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/nihx9919/SENIOR"
+                <a href="https://github.com/nihx9919/CoRe"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -185,7 +181,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          Preference-based Reinforcement Learning (PbRL) methods provide a solution to avoid reward engineering by learning reward models based on human preferences. However, poor feedback- and sample- efficiency still remain the problems that hinder the application of PbRL. In this paper, we present a novel efficient query selection and preference-guided exploration method, called <strong>SENIOR</strong>, which could select the meaningful and easy-to-comparison behavior segment pairs to improve human feedback-efficiency and accelerate policy learning with the designed preference-guided intrinsic rewards. <strong>Our key idea is twofold: (1) We designed a Motion-Distinction-based Selection scheme (MDS). It selects segment pairs with apparent motion and different directions through kernel density estimation of states, which is more task-related and easy for human preference labeling; (2) We proposed a novel preference-guided exploration method (PGE). It encourages the exploration towards the states with high preference and low visits and continuously guides the agent achieving the valuable samples.</strong> The synergy between the two mechanisms could significantly accelerate the progress of reward and policy learning. Our experiments show that SENIOR outperforms other five existing methods in both human feedback-efficiency and policy convergence speed on six complex robot manipulation tasks from simulation and four real-worlds.
+          Reward design remains a central challenge in reinforcement learning (RL). Hand-crafted rewards are often difficult to specify and may lead to suboptimal policies, while learned rewards from preferences can suffer from inefficiency and unstable training. Inspired by the dual nature of human learning explored in cognitive science, we decompose rewards into two complementary components: <strong>Formal Rewards (FR)</strong>, explicitly designed based on task knowledge, and <strong>Residual Rewards (RR)</strong>, learned from observations to capture implicit and nuanced preferences. Based on this decomposition, we propose CoRe, a hybrid framework that integrates FR and RR with vision-language models (VLMs) feedback to achieve preference-aligned policies without human involvement. Our contributions are twofold: (1) We propose a <strong>Formal Reward Module (FRM) that leverages VLMs to iteratively design and optimize FR based on task knowledge and preference feedback</strong>, enabling the continual improvement of policy during training; (2) We introduce a <strong>Residual Reward Module (RRM) that learns RR from video-level preference by employing VLMs to generate preference labels</strong> and capturing nuanced rewards that complement FR, ensuring alignment with human intent. <strong>Through the synergy of FRM and RRM, CoRe enables the automatic construction of reliable rewards that are efficient and preference-aligned.</strong> Extensive experiments demonstrate that CoRe outperforms existing approaches in terms of policy learning effectiveness and efficiency on ten robotic manipulation tasks in simulation and five real-worlds.
         </div>
       </div>
     </div>
