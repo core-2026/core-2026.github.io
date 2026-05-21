@@ -48,7 +48,7 @@
 
 <section class="hero">
   <div class="hero-body">
-    <div class="container page-container">
+    <div class="container page-container page-container--narrow">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning</h1>
@@ -111,7 +111,7 @@
 </section>
 
 <section class="section page-content">
-  <div class="container page-container">
+  <div class="container page-container page-container--narrow">
 
     <div class="section-block">
       <div class="video-slot video-slot--large">
@@ -121,9 +121,9 @@
       </div>
     </div>
 
-    <div class="section-block">
-      <h2 class="title is-3 section-heading-left">Abstract</h2>
-      <div class="content has-text-justified section-body">
+    <div class="section-block section-block--abstract">
+      <h2 class="title is-3 section-heading-center">Abstract</h2>
+      <div class="content has-text-justified section-body abstract-body">
         <p>
           Reward design remains a central challenge in reinforcement learning (RL). Hand-crafted rewards are often difficult to specify and may lead to suboptimal policies, while learned rewards from preferences can suffer from inefficiency and unstable training. Inspired by the dual nature of human learning explored in cognitive science, we decompose rewards into two complementary components: <strong>Formal Rewards (FR)</strong>, explicitly designed based on task knowledge, and <strong>Residual Rewards (RR)</strong>, learned from observations to capture implicit and nuanced preferences. Based on this decomposition, we propose CoRe, a hybrid framework that integrates FR and RR with vision-language models (VLMs) feedback to achieve preference-aligned policies without human involvement. Our contributions are twofold: (1) We propose a <strong>Formal Reward Module (FRM) that leverages VLMs to iteratively design and optimize FR based on task knowledge and preference feedback</strong>, enabling the continual improvement of policy during training; (2) We introduce a <strong>Residual Reward Module (RRM) that learns RR from video-level preference by employing VLMs to generate preference labels</strong> and capturing nuanced rewards that complement FR, ensuring alignment with human intent. <strong>Through the synergy of FRM and RRM, CoRe enables the automatic construction of reliable rewards that are efficient and preference-aligned.</strong> Extensive experiments demonstrate that CoRe outperforms existing approaches in terms of policy learning effectiveness and efficiency on ten robotic manipulation tasks in simulation and five real-worlds.
         </p>
@@ -131,7 +131,7 @@
     </div>
 
     <div class="section-block">
-      <h2 class="title is-3 section-heading-left">Method</h2>
+      <h2 class="title is-3 section-heading-left">CoRe Method</h2>
       <div class="video-slot">
         <video controls muted playsinline loop>
           <!-- <source src="./static/videos/method.mp4" type="video/mp4"> -->
