@@ -1,5 +1,92 @@
 body {
   font-family: 'Noto Sans', sans-serif;
+  font-size: 1.0625rem;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.page-content .content,
+.page-content .section-body {
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.page-content .title.is-3 {
+  font-size: 2rem;
+}
+
+.section-heading-left {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.section-block {
+  margin-bottom: 3rem;
+}
+
+.section-block:last-child {
+  margin-bottom: 0;
+}
+
+.video-slot {
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-slot--large {
+  min-height: 420px;
+}
+
+.video-slot--compact {
+  min-height: 0;
+  background: #f0f0f0;
+}
+
+.video-slot video {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+
+.video-gallery-section {
+  padding-top: 0;
+}
+
+.video-row-five {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .video-row-five {
+    flex-wrap: wrap;
+  }
+
+  .video-row-five .column {
+    flex: none;
+    width: 50%;
+  }
+
+  .video-slot--large {
+    min-height: 240px;
+  }
+}
+
+#BibTeX pre {
+  font-size: 0.95rem;
 }
 
 
@@ -49,10 +136,12 @@ body {
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
+    font-size: 2.75rem !important;
 }
 
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
+    font-size: 1.25rem !important;
 }
 
 .publication-venue {

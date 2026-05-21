@@ -48,14 +48,14 @@
 
 <section class="hero">
   <div class="hero-body">
-    <div class="container is-max-desktop">
+    <div class="container page-container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning</h1>
           <h2 class="subtitle is-4 publication-venue">ICML 2026</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Hexian Ni</a><sup>1</sup>, <sup>2</sup>,</span>
+              Hexian Ni<sup>1,2</sup>,</span>
             <span class="author-block">
               <a href="https://people.ucas.ac.cn/~casialutao">Tao Lu</a><sup>1†</sup>,</span>
             <span class="author-block">
@@ -110,169 +110,92 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+<section class="section page-content">
+  <div class="container page-container">
+
+    <div class="section-block">
+      <div class="video-slot video-slot--large">
+        <video controls muted playsinline loop>
+          <!-- <source src="./static/videos/teaser.mp4" type="video/mp4"> -->
+        </video>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2 class="title is-3 section-heading-left">Abstract</h2>
+      <div class="content has-text-justified section-body">
+        <p>
           Reward design remains a central challenge in reinforcement learning (RL). Hand-crafted rewards are often difficult to specify and may lead to suboptimal policies, while learned rewards from preferences can suffer from inefficiency and unstable training. Inspired by the dual nature of human learning explored in cognitive science, we decompose rewards into two complementary components: <strong>Formal Rewards (FR)</strong>, explicitly designed based on task knowledge, and <strong>Residual Rewards (RR)</strong>, learned from observations to capture implicit and nuanced preferences. Based on this decomposition, we propose CoRe, a hybrid framework that integrates FR and RR with vision-language models (VLMs) feedback to achieve preference-aligned policies without human involvement. Our contributions are twofold: (1) We propose a <strong>Formal Reward Module (FRM) that leverages VLMs to iteratively design and optimize FR based on task knowledge and preference feedback</strong>, enabling the continual improvement of policy during training; (2) We introduce a <strong>Residual Reward Module (RRM) that learns RR from video-level preference by employing VLMs to generate preference labels</strong> and capturing nuanced rewards that complement FR, ensuring alignment with human intent. <strong>Through the synergy of FRM and RRM, CoRe enables the automatic construction of reliable rewards that are efficient and preference-aligned.</strong> Extensive experiments demonstrate that CoRe outperforms existing approaches in terms of policy learning effectiveness and efficiency on ten robotic manipulation tasks in simulation and five real-worlds.
-        </div>
+        </p>
       </div>
     </div>
-    <!--/ Abstract. -->
 
-    <!-- Method -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Method</h2>
-        <img src="./static/images/overall.png" style="max-width: 75%; height: auto; display: block; margin: 0 auto;">
-        <div class="content has-text-justified">
-          <p>
-            <strong>Figure 1: Illustration of SENIOR.</strong> PGE assigns high task rewards for fewer visits and human-preferred states to encourage efficient exploration through hybrid experience updating policy, which will provide query selection for more valuable task-relevant segments. MDS select easily comparable and meaningful segment pairs with apparent motion distinction for high-quality labels to facilitate reward learning, providing the agent with accurate rewards guidance for PGE exploration. During training, MDS and PGE interact and complement each other, improving both feedback- and exploration-efficiency of PbRL.
-          </p>
-        </div>
+    <div class="section-block">
+      <h2 class="title is-3 section-heading-left">Method</h2>
+      <div class="video-slot">
+        <video controls muted playsinline loop>
+          <!-- <source src="./static/videos/method.mp4" type="video/mp4"> -->
+        </video>
       </div>
     </div>
-  </div>
-  <!-- Method -->
 
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+    <div class="section-block">
+      <h2 class="title is-3 section-heading-left">Experiments and Results</h2>
+      <div class="video-slot">
+        <video controls muted playsinline loop>
+          <!-- <source src="./static/videos/experiments.mp4" type="video/mp4"> -->
+        </video>
       </div>
-    </div> -->
-    <!--/ Paper video. -->
+    </div>
+
   </div>
 </section>
 
-<!-- Experiment Section -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <!-- 主标题 -->
-        <h2 class="title is-3 has-text-centered">Experiment</h2>
-
-        <!-- ===== 仿真实验部分 ===== -->
-        <h3 class="title is-4 has-text-left">Simulated Experiments</h3>
-        <div class="content has-text-justified">
-          <p>
-            We compare our method (SENIOR) with five baseline methods on six complex robot manipulation tasks in Meta-World, including Door Lock, Window Close, Handle Press, Window Open, Door Open and Door Unlock. PbRL methods include PEBBLE, MRN, RUNE, M-RUNE(RUNE with MRN), QPA, P-SENIOR(PEBBLE with SENIOR) and M-SENIOR(MRN with SENIOR). The experiment was repeated 100 times for each task.
-          </p>
-        </div>
-        <div class="columns is-multiline is-centered">
-        <!-- 第一行 -->
-        <div class="column is-one-third has-text-centered">
-          <video controls muted playsinline loop style="width: 100%; height: auto;">
-            <source src="./static/videos/sim_door_lock_html.mp4" type="video/mp4">
+<section class="section video-gallery-section">
+  <div class="container page-container">
+    <div class="columns video-row-five is-variable is-2">
+      <div class="column">
+        <div class="video-slot video-slot--compact">
+          <video controls muted playsinline loop>
+            <source src="./static/videos/real_door_open_html.mp4" type="video/mp4">
           </video>
-          <p><strong>Door Lock (feedback=250)</strong></p>
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <video controls muted playsinline loop style="width: 100%; height: auto;">
-            <source src="./static/videos/sim_window_close_html.mp4" type="video/mp4">
-          </video>
-          <p><strong>Window Close (feedback=250)</strong></p>
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <video controls muted playsinline loop style="width: 100%; height: auto;">
-            <source src="./static/videos/sim_handle_press_html.mp4" type="video/mp4">
-          </video>
-          <p><strong>Handle Press (feedback=250)</strong></p>
-        </div>
-
-        <!-- 第二行 -->
-        <div class="column is-one-third has-text-centered">
-          <video controls muted playsinline loop style="width: 100%; height: auto;">
-            <source src="./static/videos/sim_window_open_html.mp4" type="video/mp4">
-          </video>
-          <p><strong>Window Open (feedback=250)</strong></p>
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <video controls muted playsinline loop style="width: 100%; height: auto;">
-            <source src="./static/videos/sim_door_open_html.mp4" type="video/mp4">
-          </video>
-          <p><strong>Door Open (feedback=1000)</strong></p>
-        </div>
-        <div class="column is-one-third has-text-centered">
-          <video controls muted playsinline loop style="width: 100%; height: auto;">
-            <source src="./static/videos/sim_door_unlock_html.mp4" type="video/mp4">
-          </video>
-          <p><strong>Door Unlock (feedback=1000)</strong></p>
         </div>
       </div>
-
-        <div class="content has-text-centered">
-          <img src="./static/images/sim_curves.png" style="max-width: 90%; height: auto;">
-          <p><strong>Figure 2:</strong> Learning curves on six robotic manipulation tasks as measured by success rate. The solid line and shaded regions represent the mean and standard deviation, respectively, across five runs. </p>
+      <div class="column">
+        <div class="video-slot video-slot--compact">
+          <video controls muted playsinline loop>
+            <source src="./static/videos/real_door_close_html.mp4" type="video/mp4">
+          </video>
         </div>
-        <div class="content has-text-centered">
-          <img src="./static/images/sim_table.png" style="max-width: 90%; height: auto;">
-          <p><strong>Figure 3:</strong>Comparison of success rates for six tasks at 500K and 1000K steps. </p>
+      </div>
+      <div class="column">
+        <div class="video-slot video-slot--compact">
+          <video controls muted playsinline loop>
+            <source src="./static/videos/real_box_open_html.mp4" type="video/mp4">
+          </video>
         </div>
-        
-
-        <!-- ===== 实体实验部分 ===== -->
-        <h3 class="title is-4 has-text-left">Real-World Experiments</h3>
-        <div class="content has-text-justified">
-          <p>
-            We also compare our method (SENIOR) with five baseline methods on four complex robot manipulation tasks in the real world, including Door Open, Door Close, Box Open and Box Close. PbRL methods include PEBBLE, MRN, RUNE, M-RUNE(RUNE with MRN), QPA and M-SENIOR(MRN with SENIOR). The experiment was repeated 20 times for each task.
-          </p>
+      </div>
+      <div class="column">
+        <div class="video-slot video-slot--compact">
+          <video controls muted playsinline loop>
+            <source src="./static/videos/real_box_close_html.mp4" type="video/mp4">
+          </video>
         </div>
-        <!-- 第一行 -->
-        <div class="columns is-centered">
-          <div class="column is-half has-text-centered">
-            <video controls muted playsinline loop style="width: 100%; height: auto;">
-              <source src="./static/videos/real_door_open_html.mp4" type="video/mp4">
-            </video>
-            <p><strong>Door Open (feedback=1000)</strong></p>
-          </div>
-          <div class="column is-half has-text-centered">
-            <video controls muted playsinline loop style="width: 100%; height: auto;">
-              <source src="./static/videos/real_door_close_html.mp4" type="video/mp4">
-            </video>
-            <p><strong>Door Close (feedback=50)</strong></p>
-          </div>
-        </div>
-
-        <!-- 第二行 -->
-        <div class="columns is-centered">
-          <div class="column is-half has-text-centered">
-            <video controls muted playsinline loop style="width: 100%; height: auto;">
-              <source src="./static/videos/real_box_open_html.mp4" type="video/mp4">
-            </video>
-            <p><strong>Box Open (feedback=250)</strong></p>
-          </div>
-          <div class="column is-half has-text-centered">
-            <video controls muted playsinline loop style="width: 100%; height: auto;">
-              <source src="./static/videos/real_box_close_html.mp4" type="video/mp4">
-            </video>
-            <p><strong>Box Close (feedback=250)</strong></p>
-          </div>
-        </div>
-
-        <div class="content has-text-centered">
-          <img src="./static/images/real_table.png" style="max-width: 75%; height: auto;">
-          <p><strong>Figure 4:</strong> Success rate of simulation and real experiments on four tasks. </p>
+      </div>
+      <div class="column">
+        <div class="video-slot video-slot--compact">
+          <video controls muted playsinline loop>
+            <!-- <source src="./static/videos/task5.mp4" type="video/mp4"> -->
+          </video>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!--/ Experiment Section -->
-
-
 
 <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
+  <div class="container page-container content">
+    <h2 class="title is-3 section-heading-left">BibTeX</h2>
     <pre><code>@InProceedings{ni2026core,
   title     = {CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning},
   author    = {Ni, Hexian and Lu, Tao and Cai, Yinghao},
