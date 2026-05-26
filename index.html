@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="description"
         content="CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning">
-  <meta name="keywords" content="Reinforcement Learning From Human Feedback, Reinforcement Learning From AI Feedback, Preference-based Reinforcement Learning">
+  <meta name="keywords" content="Reinforcement Learning, Preference-based RL, Vision-Language Models, Robotic Manipulation, Reward Design">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CoRe</title>
 
@@ -22,26 +22,39 @@
     body { font-size: 1.0625rem; }
 
     .page-container {
-      max-width: 1200px;
+      max-width: 960px;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .page-container--narrow { max-width: 1000px; }
+    .page-container--narrow { max-width: 920px !important; }
 
-    .publication-title { font-size: 2.75rem !important; }
+    .publication-title {
+      font-size: 3.00rem !important;
+      margin-bottom: 0.5rem !important;
+    }
     .publication-authors { font-size: 1.25rem !important; }
 
     .publication-venue {
       color: #000;
       font-weight: bold;
-      margin-top: 2.5rem;
-      margin-bottom: 1.25rem;
+      margin-top: 0 !important;
+      margin-bottom: 0.35rem !important;
       margin-left: auto;
       margin-right: auto;
       width: fit-content;
+    }
+
+    .publication-venue.subtitle {
+      margin-bottom: 0.35rem !important;
+    }
+
+    .hero .publication-authors:first-of-type {
+      margin-top: 0.25rem;
     }
 
     .page-content .content,
@@ -50,53 +63,288 @@
       line-height: 1.75;
     }
 
-    .page-content .title.is-3 { font-size: 2rem; }
-
-    .section-heading-left {
-      text-align: left;
+    /* 标题层级：major (1.875rem) > block (1.5rem) > sub (1.2rem) */
+    .page-content .heading-major,
+    .video-gallery-section .heading-major,
+    #BibTeX .heading-major {
+      font-size: 1.875rem;
+      font-weight: 700;
+      line-height: 1.3;
       margin-bottom: 1rem;
     }
 
-    .section-heading-center {
-      text-align: center;
-      margin-bottom: 1rem;
+    .page-content .heading-block,
+    .video-gallery-section .heading-block {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
     }
+
+    .page-content .heading-major + .heading-block {
+      margin-top: 1.25rem;
+    }
+
+    .video-gallery-section > .page-container > .heading-block:first-child {
+      margin-top: 0;
+    }
+
+    .page-content .heading-sub,
+    .video-gallery-section .heading-sub {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-top: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading-left { text-align: left; }
+    .section-heading-center { text-align: center; }
 
     .section-block { margin-bottom: 3rem; }
     .section-block:last-child { margin-bottom: 0; }
 
-    .section-block--abstract .abstract-body {
-      margin-left: auto;
-      margin-right: auto;
+    .highlights-box {
+      background: #f7f7f7;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 0.5rem;
     }
 
-    .video-slot {
+    .highlights-box ul { margin: 0; padding-left: 1.25rem; }
+    .highlights-box li { margin-bottom: 0.65rem; }
+    .highlights-box li:last-child { margin-bottom: 0; }
+
+    .media-slot {
       width: 100%;
-      background: #f0f0f0;
       border-radius: 10px;
       overflow: hidden;
-      min-height: 280px;
+      background: #f0f0f0;
+      margin-bottom: 0.75rem;
+    }
+
+    .media-slot img,
+    .figure-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .media-placeholder {
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 200px;
+      padding: 1.5rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      background: #fafafa;
     }
 
-    .video-slot--large { min-height: 420px; }
-    .video-slot--compact { min-height: 0; }
+    .media-placeholder--tall { min-height: 320px; }
+    .media-placeholder--short { min-height: 140px; }
+
+    .figure-caption {
+      text-align: center;
+      color: #555;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-slot {
+      position: relative;
+      width: 100%;
+      background: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      line-height: 0;
+    }
 
     .video-slot video {
       width: 100%;
       height: auto;
       display: block;
+      vertical-align: top;
+    }
+
+    .video-slot .media-placeholder {
+      position: absolute;
+      inset: 0;
+      border: none;
+      border-radius: 10px;
+      min-height: 100%;
+    }
+
+    .results-table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .results-table,
+    .task-desc-table {
+      width: 100%;
+      font-size: 0.95rem;
+      border-collapse: collapse;
+    }
+
+    .results-table th,
+    .results-table td,
+    .task-desc-table th,
+    .task-desc-table td {
+      border: 1px solid #ddd;
+      padding: 0.45rem 0.6rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .task-desc-table th,
+    .task-desc-table td {
+      padding: 0.5rem 0.75rem;
+      vertical-align: top;
+    }
+
+    /* 仅 Method / Task Name 列左对齐 */
+    .results-table thead tr:first-child th:first-child,
+    .results-table tbody td:first-child,
+    .task-desc-table thead th:first-child,
+    .task-desc-table tbody td:first-child {
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .results-table th,
+    .task-desc-table th {
+      background: #f5f5f5;
+      font-weight: 600;
+    }
+
+    .results-table .method-core {
+      font-weight: 700;
+      background: #f0f7ff;
+    }
+
+    .task-desc-table tbody td:first-child {
+      width: 10.5rem;
+      font-style: italic;
+    }
+
+    .task-video-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: 0.35rem;
     }
 
     .video-gallery-section { padding-top: 0; }
     .video-row-five { margin-bottom: 0; }
 
+    .sim-video-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .curves-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .curves-grid .curve-cell img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .curves-legend {
+      max-width: 100%;
+      margin: 0 auto 0.5rem;
+    }
+
+    .curve-cell-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #444;
+      margin-top: 0.25rem;
+    }
+
+    .results-table--wide { font-size: 0.82rem; }
+    .results-table--wide th,
+    .results-table--wide td { padding: 0.35rem 0.4rem; }
+
+    .results-table .col-group-mw { border-bottom: 2px solid #bbb; }
+    .results-table .col-group-sg { border-bottom: 2px solid #bbb; }
+
+    @media screen and (max-width: 1024px) {
+      .sim-video-grid { grid-template-columns: repeat(3, 1fr); }
+      .curves-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
     @media screen and (max-width: 768px) {
       .video-row-five { flex-wrap: wrap; }
       .video-row-five .column { flex: none; width: 50%; }
-      .video-slot--large { min-height: 240px; }
+      .sim-video-grid { grid-template-columns: repeat(2, 1fr); }
+      .curves-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .example-box {
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      background: #f7f7f7;
+      padding: 1rem 1.15rem;
+      margin: 1rem 0 1.25rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #333;
+    }
+
+    .example-box-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.65rem;
+      color: #222;
+    }
+
+    .code-block {
+      margin: 0;
+      padding: 1rem 1.1rem;
+      overflow-x: auto;
+      border-radius: 8px;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      white-space: pre;
+    }
+
+    .preference-video-placeholder {
+      min-height: 220px;
+      margin: 1rem 0;
+    }
+
+    .example-list {
+      margin: 0.5rem 0 0.75rem 1.25rem;
+    }
+
+    .example-list li { margin-bottom: 0.35rem; }
+
+    .example-pref-result {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed #ccc;
     }
   </style>
 
@@ -107,84 +355,58 @@
 </head>
 <body>
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://nihx9919.github.io/senior.github.io/">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-    </div>
-
-  </div>
-</nav> -->
-
-
 <section class="hero">
   <div class="hero-body">
-    <div class="container page-container page-container--narrow">
+    <div class="page-container page-container--narrow">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning</h1>
           <h2 class="subtitle is-4 publication-venue">ICML 2026</h2>
           <div class="is-size-5 publication-authors">
+            <span class="author-block">Hexian Ni<sup>1,2</sup>,</span>
             <span class="author-block">
-              Hexian Ni<sup>1,2</sup>,</span>
+              <a href="https://people.ucas.ac.cn/~casialutao">Tao Lu</a><sup>1†</sup>,
+            </span>
             <span class="author-block">
-              <a href="https://people.ucas.ac.cn/~casialutao">Tao Lu</a><sup>1†</sup>,</span>
-            <span class="author-block">
-              <a href="https://people.ucas.edu.cn/~yhcai">Yinghao Cai</a><sup>1</sup>,</span>
+              <a href="https://people.ucas.edu.cn/~yhcai">Yinghao Cai</a><sup>1</sup>
+            </span>
           </div>
-
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>State Key Laboratory of Multimodal Artificial Intelligence Systems, Institute of Automation, Chinese Academy of Sciences,</span>
+            <span class="author-block"><sup>1</sup>State Key Laboratory of Multimodal Artificial Intelligence Systems, Institute of Automation, Chinese Academy of Sciences</span>
             <span class="author-block"><sup>2</sup>School of Artificial Intelligence, University of Chinese Academy of Sciences</span>
           </div>
           <div class="is-size-6 has-text-centered">
-           <p><sup>†</sup> Corresponding author</p>
+            <p><sup>†</sup> Corresponding author</p>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. todo -->
+              <!-- TODO: replace # with PDF URL -->
               <span class="link-block">
-                <a href="https://core-2026.github.io/" 
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark"
+                   title="Replace with paper PDF link">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
+              <!-- TODO: replace # with arXiv URL -->
               <span class="link-block">
-                <a href="https://core-2026.github.io/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark"
+                   title="Replace with arXiv link">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/nihx9919/CoRe"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                  </a>
+                </a>
               </span>
             </div>
-
           </div>
         </div>
       </div>
@@ -193,119 +415,499 @@
 </section>
 
 <section class="section page-content">
-  <div class="container page-container page-container--narrow">
+  <div class="page-container page-container--narrow">
 
+    <!-- Method Overview -->
     <div class="section-block">
-      <div class="video-slot video-slot--large">
-        <video controls muted playsinline loop>
-          <!-- <source src="./static/videos/teaser.mp4" type="video/mp4"> -->
-        </video>
+      <div class="media-slot">
+        <img class="figure-img" src="./static/images/overall.png" alt="Overview of the CoRe framework">
       </div>
+      <p class="figure-caption">
+        CoRe decomposes the task reward into a Formal Reward Module (FRM) and a Residual Reward Module (RRM).
+        FRM leverages LLMs together with VLM-based preferences to iteratively generate and refine code-based rewards;
+        RRM incorporates video-level preferences and state-importance from VLMs to complement FRM and ensure alignment with human intent.
+      </p>
     </div>
 
-    <div class="section-block section-block--abstract">
-      <h2 class="title is-3 section-heading-center">Abstract</h2>
-      <div class="content has-text-justified section-body abstract-body">
+    <!-- Abstract -->
+    <div class="section-block">
+      <h2 class="heading-major section-heading-center">Abstract</h2>
+      <div class="content has-text-justified section-body">
         <p>
-          Reward design remains a central challenge in reinforcement learning (RL). Hand-crafted rewards are often difficult to specify and may lead to suboptimal policies, while learned rewards from preferences can suffer from inefficiency and unstable training. Inspired by the dual nature of human learning explored in cognitive science, we decompose rewards into two complementary components: <strong>Formal Rewards (FR)</strong>, explicitly designed based on task knowledge, and <strong>Residual Rewards (RR)</strong>, learned from observations to capture implicit and nuanced preferences. Based on this decomposition, we propose CoRe, a hybrid framework that integrates FR and RR with vision-language models (VLMs) feedback to achieve preference-aligned policies without human involvement. Our contributions are twofold: (1) We propose a <strong>Formal Reward Module (FRM) that leverages VLMs to iteratively design and optimize FR based on task knowledge and preference feedback</strong>, enabling the continual improvement of policy during training; (2) We introduce a <strong>Residual Reward Module (RRM) that learns RR from video-level preference by employing VLMs to generate preference labels</strong> and capturing nuanced rewards that complement FR, ensuring alignment with human intent. <strong>Through the synergy of FRM and RRM, CoRe enables the automatic construction of reliable rewards that are efficient and preference-aligned.</strong> Extensive experiments demonstrate that CoRe outperforms existing approaches in terms of policy learning effectiveness and efficiency on ten robotic manipulation tasks in simulation and five real-worlds.
+          Reward design remains a central challenge in reinforcement learning (RL). Hand-crafted rewards are often difficult to specify and may lead to suboptimal policies, while learned rewards from preferences can suffer from inefficiency and unstable training. Inspired by the dual nature of human learning explored in cognitive science, we decompose rewards into two complementary components: <strong>Formal Rewards (FR)</strong>, explicitly designed based on task knowledge, and <strong>Residual Rewards (RR)</strong>, learned from observations to capture implicit and nuanced preferences. <strong>Based on this decomposition, we propose CoRe, a hybrid framework that integrates FR and RR with vision-language models (VLMs) feedback to achieve preference-aligned policies without human involvement</strong>. Our contributions are twofold: (1) We propose a <strong>Formal Reward Module (FRM) that leverages VLMs to iteratively design and optimize FR based on task knowledge and preference feedback, enabling the continual improvement of policy during training</strong>; (2) We introduce a <strong>Residual Reward Module (RRM) that learns RR from video-level preference by employing VLMs to generate preference labels and capturing nuanced rewards that complement FR, ensuring alignment with human intent</strong>. <strong>Through the synergy of FRM and RRM, CoRe enables the automatic construction of reliable rewards that are efficient and preference-aligned</strong>. Extensive experiments demonstrate that CoRe outperforms existing approaches in terms of policy learning effectiveness and efficiency on ten robotic manipulation tasks in simulation and five real-world tasks.
         </p>
       </div>
     </div>
 
+    <!-- Experiments -->
     <div class="section-block">
-      <h2 class="title is-3 section-heading-left">CoRe Method</h2>
-      <div class="video-slot">
-        <video controls muted playsinline loop>
-          <!-- <source src="./static/videos/method.mp4" type="video/mp4"> -->
-        </video>
-      </div>
-    </div>
+      <h2 class="heading-major section-heading-left">Experiments</h2>
 
-    <div class="section-block">
-      <h2 class="title is-3 section-heading-left">Experiments and Results</h2>
-      <div class="video-slot">
-        <video controls muted playsinline loop>
-          <!-- <source src="./static/videos/experiments.mp4" type="video/mp4"> -->
-        </video>
+      <!-- Simulation -->
+      <h3 class="heading-block section-heading-left">Simulation Experiments</h3>
+      <div class="content section-body has-text-justified">
+        <p>
+          We evaluate CoRe on 10 simulation tasks: seven from MetaWorld (Soccer, Sweep Into, Drawer Open, Button Press, Dial Turn, Hammer, Peg Insert) and three from SoftGym (Fold Cloth, Straighten Rope, Pass Water).
+          MetaWorld tasks are measured by success rate (%); SoftGym tasks by episode reward.
+        </p>
       </div>
+
+      <h4 class="heading-sub section-heading-left">Videos</h4>
+      <div class="sim-video-grid">
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/soccer.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Soccer</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/sweep-into.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Sweep Into</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/drawer-open.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Drawer Open</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/button-press.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Button Press</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/dial-turn.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Dial Turn</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/hammer.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Hammer</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/peg-insert.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Peg Insert</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/fold-cloth.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Fold Cloth</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/straighten-rope.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Straighten Rope</strong></p>
+        </div>
+        <div>
+          <div class="video-slot">
+            <video controls playsinline preload="none" src="./static/videos/sim/pass-water.mp4"></video>
+          </div>
+          <p class="task-video-caption"><strong>Pass Water</strong></p>
+        </div>
+      </div>
+
+      <h4 class="heading-sub section-heading-left">Task Description</h4>
+      <div class="results-table-wrap">
+        <table class="task-desc-table">
+          <thead>
+            <tr>
+              <th>Task Name</th>
+              <th>Task Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Soccer</td><td>Move the soccer ball into the goal.</td></tr>
+            <tr><td>Sweep Into</td><td>Minimize the distance between the green cube and the hole.</td></tr>
+            <tr><td>Drawer Open</td><td>Open the drawer.</td></tr>
+            <tr><td>Button Press</td><td>Press the red button down completely from top to bottom.</td></tr>
+            <tr><td>Dial Turn</td><td>Turn the red line to the bottom of the dial.</td></tr>
+            <tr><td>Hammer</td><td>Hammer the grey nail completely in with a red hammer.</td></tr>
+            <tr><td>Peg Insert</td><td>Insert the green peg into the hole of the red block.</td></tr>
+            <tr><td>Fold Cloth</td><td>Fold the cloth diagonally from the top left corner to the bottom right corner.</td></tr>
+            <tr><td>Straighten Rope</td><td>Straighten the blue rope.</td></tr>
+            <tr><td>Pass Water</td><td>Move the container, which holds water, to be as close to the red circle as possible without causing too many water droplets to spill.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="heading-sub section-heading-left">Results</h4>
+      <div class="results-table-wrap">
+        <table class="results-table results-table--wide">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th>
+              <th colspan="7">Success Rate (%)</th>
+              <th colspan="3">Episode Reward</th>
+            </tr>
+            <tr>
+              <th>Soccer</th>
+              <th>Sweep Into</th>
+              <th>Drawer Open</th>
+              <th>Button Press</th>
+              <th>Dial Turn</th>
+              <th>Hammer</th>
+              <th>Peg Insert</th>
+              <th>Fold Cloth</th>
+              <th>Straighten Rope</th>
+              <th>Pass Water</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Env Sparse</td><td>100.0</td><td>60.0</td><td>100.0</td><td>66.7</td><td>100.0</td><td>60.7</td><td>0.0</td><td><strong>−0.04</strong></td><td>18.6</td><td>−67.9</td></tr>
+            <tr><td>Env Dense</td><td>100.0</td><td><strong>98.0</strong></td><td>100.0</td><td>100.0</td><td><strong>100.0</strong></td><td>97.3</td><td>100.0</td><td>−0.08</td><td>18.1</td><td><strong>−18.3</strong></td></tr>
+            <tr><td>CLIP Score</td><td>1.3</td><td>0.0</td><td>0.0</td><td>20.7</td><td>0.0</td><td>11.3</td><td>0.0</td><td>−0.52</td><td>15.0</td><td>−299.4</td></tr>
+            <tr><td>Eureka</td><td>100.0</td><td>86.0</td><td>100.0</td><td>66.7</td><td>76.0</td><td>33.3</td><td>66.7</td><td>−0.19</td><td>16.2</td><td>−38.8</td></tr>
+            <tr><td>Text2Reward</td><td>96.7</td><td>96.0</td><td>96.0</td><td>88.0</td><td>78.0</td><td>32.0</td><td>33.3</td><td>−0.22</td><td>17.4</td><td>−43.7</td></tr>
+            <tr><td>RL-VLM-F</td><td>80.0</td><td>58.0</td><td>100.0</td><td>0.0</td><td>72.0</td><td>72.7</td><td>14.7</td><td>−0.12</td><td>17.9</td><td>−36.4</td></tr>
+            <tr><td>PrefVLM</td><td>1.3</td><td>6.7</td><td>64.0</td><td>54.0</td><td>2.7</td><td>1.3</td><td>0.0</td><td>−0.18</td><td>20.5</td><td>−86.9</td></tr>
+            <tr><td>ERL-VLM</td><td>80.7</td><td>24.0</td><td>100.0</td><td>33.3</td><td>2.7</td><td>9.3</td><td>9.3</td><td>−0.22</td><td>18.1</td><td>−202.4</td></tr>
+            <tr class="method-core"><td><strong>CoRe (Ours)</strong></td><td><strong>100.0</strong></td><td>97.3</td><td><strong>100.0</strong></td><td><strong>100.0</strong></td><td>98.0</td><td><strong>98.0</strong></td><td><strong>100.0</strong></td><td>−0.10</td><td><strong>20.6</strong></td><td>−30.0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="figure-caption">
+        Comparison of final success rate (%) and episode reward across ten tasks. Bold values indicate best performance.
+      </p>
+
+      <h4 class="heading-sub section-heading-left">Learning Curves</h4>
+      <div class="media-slot" style="margin-bottom: 0.5rem;">
+        <img class="figure-img curves-legend" src="./static/images/legend_main.png" alt="Learning curve legend">
+      </div>
+      <div class="curves-grid">
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_soccer-v2.png" alt="Soccer learning curve">
+          <p class="curve-cell-caption">Soccer</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_sweep-into-v2.png" alt="Sweep Into learning curve">
+          <p class="curve-cell-caption">Sweep Into</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_drawer-open-v2.png" alt="Drawer Open learning curve">
+          <p class="curve-cell-caption">Drawer Open</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_button-press-topdown-v2.png" alt="Button Press learning curve">
+          <p class="curve-cell-caption">Button Press</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_dial-turn-v2.png" alt="Dial Turn learning curve">
+          <p class="curve-cell-caption">Dial Turn</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_hammer-v2.png" alt="Hammer learning curve">
+          <p class="curve-cell-caption">Hammer</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/metaworld_peg-insert-side-v2.png" alt="Peg Insert learning curve">
+          <p class="curve-cell-caption">Peg Insert</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/softgym_ClothFoldDiagonal.png" alt="Fold Cloth learning curve">
+          <p class="curve-cell-caption">Fold Cloth</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/softgym_RopeFlattenEasy.png" alt="Straighten Rope learning curve">
+          <p class="curve-cell-caption">Straighten Rope</p>
+        </div>
+        <div class="curve-cell">
+          <img src="./static/images/curves/softgym_PassWater.png" alt="Pass Water learning curve">
+          <p class="curve-cell-caption">Pass Water</p>
+        </div>
+      </div>
+      <p class="figure-caption">
+        Learning curves on ten robotic manipulation tasks (success rate / episode reward). Solid lines and shaded regions denote mean and standard deviation over three seeds.
+      </p>
     </div>
 
   </div>
 </section>
 
+<!-- Real-world deployment -->
 <section class="section video-gallery-section">
-  <div class="container page-container">
-    <div class="columns video-row-five is-variable is-2">
+  <div class="page-container page-container--narrow">
+    <h2 class="heading-block section-heading-left">Real-World Experiments</h2>
+    <div class="content section-body has-text-justified" style="max-width: 52rem; margin-bottom: 1.25rem;">
+      <p>
+        Policies trained in simulation are deployed on a UR5 robotic arm without fine-tuning across five real-world tasks.
+        Each method is evaluated over 20 trials per task.
+      </p>
+    </div>
+    <h4 class="heading-sub section-heading-left">Videos</h4>
+    <div class="columns video-row-five is-variable is-1">
       <div class="column">
-        <div class="video-slot video-slot--compact">
-          <video controls muted playsinline loop>
-            <source src="./static/videos/real_door_open_html.mp4" type="video/mp4">
+        <div class="video-slot">
+          <video controls playsinline preload="auto">
+            <source src="static/videos/real/drawer-open.mp4" type="video/mp4">
           </video>
         </div>
+        <p class="task-video-caption"><strong>Drawer Open</strong></p>
       </div>
       <div class="column">
-        <div class="video-slot video-slot--compact">
-          <video controls muted playsinline loop>
-            <source src="./static/videos/real_door_close_html.mp4" type="video/mp4">
+        <div class="video-slot">
+          <video controls playsinline preload="auto">
+            <source src="static/videos/real/dial-turn.mp4" type="video/mp4">
           </video>
         </div>
+        <p class="task-video-caption"><strong>Dial Turn</strong></p>
       </div>
       <div class="column">
-        <div class="video-slot video-slot--compact">
-          <video controls muted playsinline loop>
-            <source src="./static/videos/real_box_open_html.mp4" type="video/mp4">
+        <div class="video-slot">
+          <video controls playsinline preload="auto">
+            <source src="static/videos/real/hammer.mp4" type="video/mp4">
           </video>
         </div>
+        <p class="task-video-caption"><strong>Hammer</strong></p>
       </div>
       <div class="column">
-        <div class="video-slot video-slot--compact">
-          <video controls muted playsinline loop>
-            <source src="./static/videos/real_box_close_html.mp4" type="video/mp4">
+        <div class="video-slot">
+          <video controls playsinline preload="auto">
+            <source src="static/videos/real/cloth.mp4" type="video/mp4">
           </video>
         </div>
+        <p class="task-video-caption"><strong>Fold Cloth</strong></p>
       </div>
       <div class="column">
-        <div class="video-slot video-slot--compact">
-          <video controls muted playsinline loop>
-            <!-- <source src="./static/videos/task5.mp4" type="video/mp4"> -->
+        <div class="video-slot">
+          <video controls playsinline preload="auto">
+            <source src="static/videos/real/rope.mp4" type="video/mp4">
           </video>
         </div>
+        <p class="task-video-caption"><strong>Straighten Rope</strong></p>
       </div>
     </div>
+
+    <h3 class="heading-sub section-heading-left">Results</h3>
+    <div class="results-table-wrap">
+      <table class="results-table results-table--wide">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="2">Drawer Open ↑</th>
+            <th colspan="2">Dial Turn ↑</th>
+            <th colspan="2">Hammer ↑</th>
+            <th colspan="2">Fold Cloth ↓</th>
+            <th colspan="2">Straighten Rope ↑</th>
+          </tr>
+          <tr>
+            <th>sim</th><th>real</th>
+            <th>sim</th><th>real</th>
+            <th>sim</th><th>real</th>
+            <th>sim</th><th>real</th>
+            <th>sim</th><th>real</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CLIP Score</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>11.0</td><td>15.6</td><td>55</td><td>33</td></tr>
+          <tr><td>Eureka</td><td>100</td><td>70</td><td>60</td><td>45</td><td>0</td><td>0</td><td>4.8</td><td>7.3</td><td>76</td><td>69</td></tr>
+          <tr><td>Text2Reward</td><td>100</td><td>75</td><td>55</td><td>45</td><td>40</td><td>25</td><td>5.1</td><td>7.0</td><td>51</td><td>42</td></tr>
+          <tr><td>PrefVLM</td><td>85</td><td>55</td><td>0</td><td>0</td><td>5</td><td>0</td><td>2.9</td><td>4.5</td><td>81</td><td>71</td></tr>
+          <tr><td>RL-VLM-F</td><td>100</td><td>65</td><td>55</td><td>45</td><td>50</td><td>35</td><td>2.5</td><td>4.9</td><td>83</td><td>73</td></tr>
+          <tr><td>ERL-VLM</td><td>100</td><td>80</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4.2</td><td>5.2</td><td>81</td><td>53</td></tr>
+          <tr class="method-core"><td><strong>CoRe (Ours)</strong></td><td><strong>100</strong></td><td><strong>90</strong></td><td><strong>75</strong></td><td><strong>70</strong></td><td><strong>90</strong></td><td><strong>80</strong></td><td><strong>2.1</strong></td><td><strong>3.2</strong></td><td><strong>90</strong></td><td><strong>84</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="figure-caption">
+      Success rate (%) for Drawer Open, Dial Turn and Hammer; Fold Cloth reports positional error (cm, lower is better); Straighten Rope reports task completion (%).
+      CoRe consistently outperforms baselines across all five real-world tasks, demonstrating robust sim-to-real transfer.
+    </p>
+
+    <h3 class="heading-block section-heading-left">Feedback Efficiency</h3>
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="2">MetaWorld</th>
+            <th colspan="2">Fold Cloth</th>
+            <th colspan="2">Straighten Rope / Pass Water</th>
+          </tr>
+          <tr>
+            <th>Label</th><th>Image</th>
+            <th>Label</th><th>Image</th>
+            <th>Label</th><th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>RL-VLM-F</td><td>5.0K</td><td>10.0K</td><td>0.50K</td><td>1.00K</td><td>2.0K</td><td>4.0K</td></tr>
+          <tr><td>PrefVLM</td><td>21.0K</td><td>2.0M</td><td>1.79K</td><td>10.74K</td><td>4.1K</td><td>0.4M</td></tr>
+          <tr><td>ERL-VLM</td><td>4.9K</td><td>4.9K</td><td>0.75K</td><td><strong>0.75K</strong></td><td>0.9K</td><td><strong>0.9K</strong></td></tr>
+          <tr class="method-core"><td><strong>CoRe (Ours)</strong></td><td><strong>0.5K</strong></td><td><strong>4.0K</strong></td><td><strong>0.15K</strong></td><td>1.20K</td><td><strong>0.2K</strong></td><td>1.6K</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="figure-caption">
+      CoRe demonstrates superior preference feedback efficiency.
+        Across tasks, it uses only 0.15K–0.5K preference labels, compared to 0.5K–21K for baseline methods — a 3–40× reduction.
+      Feedback numbers across ten tasks (labels and images used for preference-based reward learning).
+    </p>
+
+    <h3 class="heading-block section-heading-left">Training Cost</h3>
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Token (M)</th>
+            <th>API Cost ($)</th>
+            <th>Time (h)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>SAC</td><td>—</td><td>—</td><td>0.97</td></tr>
+          <tr><td>CLIP Score</td><td>—</td><td>—</td><td>2.58</td></tr>
+          <tr><td>Eureka</td><td>0.03</td><td>0.03</td><td>1.87</td></tr>
+          <tr><td>Text2Reward</td><td>0.03</td><td>0.02</td><td>5.73</td></tr>
+          <tr><td>RL-VLM-F</td><td>5.50</td><td>0.79</td><td>6.72</td></tr>
+          <tr><td>PrefVLM</td><td>—</td><td>—</td><td>1.82</td></tr>
+          <tr><td>ERL-VLM</td><td>3.19</td><td>0.55</td><td>5.80</td></tr>
+          <tr class="method-core"><td><strong>CoRe (Ours)</strong></td><td>2.00</td><td>0.37</td><td>2.15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="figure-caption">
+      Average training cost across methods (token usage, API cost, and wall-clock time).
+      A full CoRe training run requires approximately 2.00M tokens, $0.37 API cost, and 2.15 hours of wall-clock time.
+      Compared other baselines, CoRe achieves a more favorable trade-off between performance, computational cost, and runtime efficiency.
+    </p>
+  </div>
+</section>
+
+<section class="section page-content">
+  <div class="page-container page-container--narrow">
+
+    <div class="section-block">
+      <h3 class="heading-block section-heading-left">FRM Code</h3>
+      <p class="content section-body has-text-justified" style="margin-bottom: 0.75rem;">
+        LLM-generated formal reward for Sweep Into.
+      </p>
+      <pre class="code-block"><code>import numpy as np
+def reward_function(observation, action, target_pos):
+    # Unpack observation components
+    # observation = [x_hand, y_hand, z_hand, gripper_open, x_obj, y_obj, z_obj, qx_obj, qy_obj, qz_obj, qw_obj]
+    hand_pos = observation[0:3]
+    # gripper_open = observation[3]  # Normalized gripper opening, not needed for sweep task specifically
+    obj_pos = observation[4:7]
+    # obj_quat = observation[7:11]   # Not used in reward for sweeping
+
+    # Distance from object to target (hole)
+    dist_obj_to_target = np.linalg.norm(obj_pos - target_pos)
+
+    # Distance from hand to object
+    dist_hand_to_obj = np.linalg.norm(hand_pos - obj_pos)
+
+    # We want to reward the cube being closer to the hole,
+    # and encourage the hand to stay near the cube to sweep it.
+    # Also encourage progress towards the goal.
+
+    # Temperature parameters for exponential scaling
+    temp_obj_to_target = 0.5
+    temp_hand_to_obj = 1.0
+
+    # Reward component: cube closer to target gives higher reward (range 0 to 1)
+    # Apply negative distance scaled and exponentiated
+    r_obj_to_target = np.exp(-dist_obj_to_target / temp_obj_to_target) - 0.5  # shift to roughly center near 0
+
+    # Reward component: hand close to object (to encourage interaction)
+    r_hand_to_obj = np.exp(-dist_hand_to_obj / temp_hand_to_obj) - 0.5  # shift to roughly center near 0
+
+    # Combine rewards with weights
+    # Since these scores range roughly in [-0.5, 0.5], sum ranges [-1, 1]
+    reward = r_obj_to_target + r_hand_to_obj
+
+    # Clip total reward to [-1, 1]
+    reward = np.clip(reward, -1.0, 1.0)
+
+    # Compose individual reward dict for info/debugging
+    reward_components = {
+        "cube_to_target": r_obj_to_target,
+        "hand_to_cube": r_hand_to_obj,
+    }
+
+    return reward, reward_components</code></pre>
+    </div>
+
+    <div class="section-block">
+      <h3 class="heading-block section-heading-left">Video-Level Preference Feedback (Sweep Into)</h3>
+      <p class="content section-body has-text-justified" style="margin-bottom: 0.75rem;">
+        VLM preference label between two trajectory videos.
+      </p>
+      <div class="video-slot">
+        <video controls playsinline preload="none" src="./static/videos/ID_6_L_0_2025-05-19-18-49-20.mp4"></video>
+      </div>
+      <div class="example-box example-box--vlm">
+        <p><strong>Analysis:</strong></p>
+        <p>Okay, let's analyze the video clips and compare them to the goal image.</p>
+        <p><strong>(1) What does each frame of video clip A show and what are the differences?</strong></p>
+        <ul class="example-list">
+          <li><strong>Frame 1:</strong> A green cube is positioned on a wooden surface, slightly above and to the left of a rectangular hole. A shadow is cast to the left of the cube.</li>
+          <li><strong>Frame 2:</strong> The green cube has moved closer to the hole, positioned at the edge of the hole.</li>
+          <li><strong>Frame 3:</strong> The green cube is now inside the hole.</li>
+        </ul>
+        <p>The difference between the frames is the position of the green cube. It moves closer to and then into the hole in subsequent frames.</p>
+        <p><strong>(2) What does each frame of video clip B show and what are the differences?</strong></p>
+        <ul class="example-list">
+          <li><strong>Frame 1:</strong> A green cube is positioned on a wooden surface, slightly above and to the left of a rectangular hole. A shadow is cast to the left of the cube.</li>
+          <li><strong>Frame 2:</strong> A green cube is positioned on a wooden surface, slightly above and to the left of a rectangular hole. A shadow is cast to the left of the cube.</li>
+          <li><strong>Frame 3:</strong> A green cube is positioned on a wooden surface, slightly above and to the left of a rectangular hole. A shadow is cast to the left of the cube.</li>
+        </ul>
+        <p>There is no difference between the frames. The green cube remains in the same position.</p>
+        <p><strong>(3) Is there any difference in each frame of the video clip and the goal?</strong></p>
+        <p><strong>Video Clip A:</strong></p>
+        <ul class="example-list">
+          <li><strong>Frame 1:</strong> The green cube is outside the hole, unlike the goal image where it's inside.</li>
+          <li><strong>Frame 2:</strong> The green cube is partially inside the hole, unlike the goal image where it's fully inside.</li>
+          <li><strong>Frame 3:</strong> The green cube is inside the hole, matching the goal image.</li>
+        </ul>
+        <p><strong>Video Clip B:</strong></p>
+        <ul class="example-list">
+          <li><strong>Frame 1:</strong> The green cube is outside the hole, unlike the goal image where it's inside.</li>
+          <li><strong>Frame 2:</strong> The green cube is outside the hole, unlike the goal image where it's inside.</li>
+          <li><strong>Frame 3:</strong> The green cube is outside the hole, unlike the goal image where it's inside.</li>
+        </ul>
+        <p>In summary, Video clip A achieves the goal in frame 3, while video clip B does not achieve the goal in any of its frames.</p>
+        <p class="example-pref-result"><strong>Preference:</strong></p>
+        <p><strong>decision#:</strong> A</p>
+        <p><strong>evaluate goal completion for each frame in the video clip:</strong> A:[0.3, 0.6, 1] B:[0.3, 0.3, 0.3]</p>
+        <p><strong>why:</strong> Video A shows the cube moving towards and eventually inside the hole, thus minimizing the distance. Video B shows the cube remaining stationary and not minimizing the distance.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section class="section" id="BibTeX">
-  <div class="container page-container content">
-    <h2 class="title is-3 section-heading-left">BibTeX</h2>
+  <div class="page-container page-container--narrow content">
+    <h2 class="heading-major section-heading-left">BibTeX</h2>
     <pre><code>@InProceedings{ni2026core,
   title     = {CoRe: Combined Rewards with Vision-Language Model Feedback for Preference-Aligned Reinforcement Learning},
   author    = {Ni, Hexian and Lu, Tao and Cai, Yinghao},
   booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
   year      = {2026}
 }</code></pre>
+    <!-- TODO: add url = {https://arxiv.org/abs/XXXX} when available -->
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container">
-    <!-- <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://nihx9919.github.io/senior.github.io/" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div> -->
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
           <p>
-            This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+            This website template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
           </p>
-
         </div>
       </div>
     </div>

@@ -1,2 +1,13 @@
-.DS_store
+.DS_Store
 .idea
+
+# Local notes & paper sources (not part of the project page)
+1.txt
+icml2026/
+icml2026_camera_ready.zip
+scripts/
+
+# Local dev helpers (optional on your machine)
+start.bat
+start.ps1
+start.sh
