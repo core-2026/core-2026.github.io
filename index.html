@@ -456,61 +456,81 @@
       <div class="sim-video-grid">
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/soccer.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/soccer.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Soccer</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/sweep-into.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/sweep-into.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Sweep Into</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/drawer-open.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/drawer-open.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Drawer Open</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/button-press.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/button-press.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Button Press</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/dial-turn.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/dial-turn.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Dial Turn</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/hammer.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/hammer.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Hammer</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/peg-insert.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/peg-insert.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Peg Insert</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/fold-cloth.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/fold-cloth.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Fold Cloth</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/straighten-rope.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/straighten-rope.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Straighten Rope</strong></p>
         </div>
         <div>
           <div class="video-slot">
-            <video controls playsinline preload="none" src="./static/videos/sim/pass-water.mp4"></video>
+            <video controls playsinline preload="auto">
+              <source src="static/videos/sim/pass-water.mp4" type="video/mp4">
+            </video>
           </div>
           <p class="task-video-caption"><strong>Pass Water</strong></p>
         </div>
@@ -839,12 +859,14 @@ def reward_function(observation, action, target_pos):
     </div>
 
     <div class="section-block">
-      <h3 class="heading-block section-heading-left">Video-Level Preference Feedback (Sweep Into)</h3>
+      <h3 class="heading-block section-heading-left">Video-Level Preference Feedback </h3>
       <p class="content section-body has-text-justified" style="margin-bottom: 0.75rem;">
         VLM preference label between two trajectory videos.
       </p>
       <div class="video-slot">
-        <video controls playsinline preload="none" src="./static/videos/ID_6_L_0_2025-05-19-18-49-20.mp4"></video>
+        <video controls playsinline preload="auto">
+          <source src="static/videos/ID_6_L_0_2025-05-19-18-49-20.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="example-box example-box--vlm">
         <p><strong>Analysis:</strong></p>
