@@ -346,6 +346,32 @@
       padding-top: 0.75rem;
       border-top: 1px dashed #ccc;
     }
+
+    .preference-feedback-row {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .preference-feedback-video {
+      flex: 0 0 380px;
+      max-width: 100%;
+    }
+
+    .preference-feedback-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .preference-feedback-row {
+        flex-direction: column;
+      }
+      .preference-feedback-video {
+        flex: 0 0 auto;
+        width: 100%;
+      }
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -863,12 +889,15 @@ def reward_function(observation, action, target_pos):
       <p class="content section-body has-text-justified" style="margin-bottom: 0.75rem;">
         VLM preference label between two trajectory videos.
       </p>
-      <div class="video-slot">
-        <video controls playsinline preload="auto">
-          <source src="static/videos/ID_6_L_0_2025-05-19-18-49-20.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="example-box example-box--vlm">
+      <div class="preference-feedback-row">
+        <div class="preference-feedback-video">
+          <div class="video-slot">
+            <video controls playsinline preload="auto">
+              <source src="static/videos/ID_6_L_0_2025-05-19-18-49-20.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="example-box example-box--vlm preference-feedback-text">
         <p><strong>Analysis:</strong></p>
         <p>Okay, let's analyze the video clips and compare them to the goal image.</p>
         <p><strong>(1) What does each frame of video clip A show and what are the differences?</strong></p>
@@ -903,6 +932,7 @@ def reward_function(observation, action, target_pos):
         <p><strong>decision#:</strong> A</p>
         <p><strong>evaluate goal completion for each frame in the video clip:</strong> A:[0.3, 0.6, 1] B:[0.3, 0.3, 0.3]</p>
         <p><strong>why:</strong> Video A shows the cube moving towards and eventually inside the hole, thus minimizing the distance. Video B shows the cube remaining stationary and not minimizing the distance.</p>
+        </div>
       </div>
     </div>
 
