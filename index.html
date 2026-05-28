@@ -758,7 +758,7 @@
     </div>
     <p class="figure-caption">
       Success rate (%) for Drawer Open, Dial Turn and Hammer; Fold Cloth reports positional error (cm, lower is better); Straighten Rope reports task completion (%).
-      CoRe consistently outperforms baselines across all five real-world tasks, demonstrating robust sim-to-real transfer.
+      CoRe consistently outperforms other baselines across five real-world tasks, demonstrating robust sim-to-real transfer.
     </p>
 
     <h3 class="heading-block section-heading-left">Feedback Efficiency</h3>
@@ -786,9 +786,10 @@
       </table>
     </div>
     <p class="figure-caption">
-      CoRe demonstrates superior preference feedback efficiency.
-        Across tasks, it uses only 0.15K–0.5K preference labels, compared to 0.5K–21K for baseline methods — a 3–40× reduction.
       Feedback numbers across ten tasks (labels and images used for preference-based reward learning).
+      CoRe demonstrates superior preference feedback efficiency.
+      Across ten tasks, it uses only 0.15K–0.5K preference labels, compared to 0.5K–21K for other baselines — a 3–40× reduction.
+      
     </p>
 
     <h3 class="heading-block section-heading-left">Training Cost</h3>
@@ -815,7 +816,7 @@
       </table>
     </div>
     <p class="figure-caption">
-      Average training cost across methods (token usage, API cost, and wall-clock time).
+      Average training cost across ten tasks (token usage, API cost, and wall-clock time).
       A full CoRe training run requires approximately 2.00M tokens, $0.37 API cost, and 2.15 hours of wall-clock time.
       Compared other baselines, CoRe achieves a more favorable trade-off between performance, computational cost, and runtime efficiency.
     </p>
